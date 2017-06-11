@@ -3,17 +3,13 @@
 /************* Uncomment the font face *************/
 
 
-/*
 @font-face {
-	font-family: 'Font Name';
-	src: url('fonts/font_name.eot');
-	src:  url('fonts/font_name.woff') format('woff'), 
-	url('fonts/font_name.ttf') format('truetype'), 
-	url('fonts/font_name.svg') format('svg');
+	font-family: 'highlanderregular';
+	src:  url('../fonts/highlander-webfont.woff2') format('woff2'), 
+		  url('../fonts/highlander-webfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
-*/
 
 
 
@@ -23,9 +19,81 @@
 		padding: 0px;
 	} 
 
-
+h1.title{
+	margin:auto;
+	font-family: 'highlanderregular',serif;
+	font-size: 150px;
+	color:#FCF0C8;
+	z-index: 2;
+}
 
 /************* Layouts *************/
+
+$shapes-size: 20em;
+
+*{
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+	font-family: 'Roboto', sans-serif;
+}
+
+video {
+  z-index: -1;
+  /* HTML5 video fallback */
+  display: block;
+  background-image: url('https://i.imgur.com/2EUHWDo.jpg') no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+          background-size: cover;
+  /* Disable play button in iOS */
+  pointer-events: none;
+  /* Center it */
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  transition: 1s opacity;
+}
+
+.shapes-container {
+  text-align: center; // This is neccessary because of the ul
+  font-size: $shapes-size;
+  color: rgba(255,255,255,.7);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.fancyText {
+  flex-flow: row wrap;
+  list-style: none;
+  display: inline-flex;
+  height: $shapes-size/20;
+  min-height: 1em;
+  padding-left: 0;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  color: #999;
+  background-color: #111;
+  font-size: 3em;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}
 
 
 /************* General Styles *************/
@@ -39,3 +107,17 @@
 
 /************* Page specific styles (optionally) *************/
 
+
+.vid-overlay {
+	position: absolute;
+/*	background: rgba(183, 66, 66, 0.8);*/
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#911f27+0,630a10+100&0.7+0,0.7+100 */
+background: -moz-linear-gradient(45deg,  rgba(145,31,39,0.8) 0%, rgba(99,10,16,0.8) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg,  rgba(145,31,39,0.8) 0%,rgba(99,10,16,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg,  rgba(145,31,39,0.8) 0%,rgba(99,10,16,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3911f27', endColorstr='#b3630a10',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	width:100%;
+	height:100%;
+	z-index: 1;
+}
